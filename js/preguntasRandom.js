@@ -1,8 +1,26 @@
+// Este código es para llamar a una api que devuelve preguntas.
+
+// Declaración de variables
+
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = `https://preguntas-random.herokuapp.com/preguntas`; // site that doesn’t send Access-Control-*function()
-var contenedor = document.getElementById('contenedor')
 
+var contenedor = document.getElementById('contenedor')
 var botonesEliminar = [];
+var idsExistentes = [];
+var id;
+var contadorId = 500;
+var botonAgregar = document.getElementById('crear');
+
+let mostrar = document.getElementById('mostrar');
+
+// Funciones auxiliares
+
+function obtenerId(e){
+    return id = e.target.id;
+}
+
+// Llamados a la api
 
 function obtener(){
     fetch(proxyurl + url)
@@ -19,6 +37,8 @@ function obtener(){
 
             botonEliminar.className = 'eliminarPregunta';
             botonEliminar.id = preg.id;
+            
+            idsExistentes.push(preg.id);
 
             botonEliminar.innerHTML = 'Eliminar';
             pregunta.innerHTML = preg.Content;
@@ -30,21 +50,12 @@ function obtener(){
         });
 
         botonesEliminar.forEach(boton => boton.addEventListener('click', e => {
-            console.log('Estoy haciendo algo');
             obtenerId(e);
             borrar(id);
             })
         );
     })
     .catch((error) => console.log("Can’t access " + url + " response. Blocked by browser?",error))
-}
-
-var id;
-// var botonesEliminar = document.getElementsByClassName('eliminarPregunta');
-console.log('botonesEliminar', botonesEliminar);
-
-function obtenerId(e){
-    return id = e.target.id;
 }
 
 function borrar(id){
@@ -58,18 +69,6 @@ function borrar(id){
     })
     .catch((error) => console.log("Can’t access " + url + " response. Blocked by browser?",error))
 }
-
-let mostrar = document.getElementById('mostrar');
-mostrar.addEventListener('click', obtener);
-
-var contadorId = 500;
-var botonAgregar = document.getElementById('crear');
-
-botonAgregar.addEventListener('click', () => {
-    let nuevaPregunta = document.getElementById('preguntaCreada').value;
-    console.log('nuevaPregunta', nuevaPregunta);
-    crear(contadorId, nuevaPregunta);
-})
 
 function crear(idNuevo, contenidoNuevo){
     fetch(`${proxyurl}${url}`, {
@@ -86,3 +85,12 @@ function crear(idNuevo, contenidoNuevo){
     })
     .catch((err) => console.log(err,"Can’t access " + url + " response. Blocked by browser?"))
 }
+
+// Acá se agregan los eventListeners que ejecutan a las funciones declaradas arriba
+
+mostrar.addEventListener('click', obtener);
+botonAgregar.addEventListener('click', () => {
+    let nuevaPregunta = document.getElementById('preguntaCreada').value;
+    console.log('nuevaPregunta', nuevaPregunta);
+    crear(contadorId, nuevaPregunta);
+})
