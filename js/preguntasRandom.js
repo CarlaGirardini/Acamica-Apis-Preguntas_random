@@ -34,13 +34,14 @@ function obtener(){
             let pregunta = document.createElement('span');
             let botonEliminar = document.createElement('button');
             botonesEliminar.push(botonEliminar);
-
+            
+            pregunta.className = 'pregunta';
             botonEliminar.className = 'eliminarPregunta';
             botonEliminar.id = preg.id;
             
             idsExistentes.push(preg.id);
 
-            botonEliminar.innerHTML = 'Eliminar';
+            botonEliminar.innerHTML = 'X';
             pregunta.innerHTML = preg.Content;
 
             contenedor.appendChild(div);

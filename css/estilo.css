@@ -1,0 +1,120 @@
+/* Elegí la paleta https://colorhunt.co/palette/163856 */
+*{
+    box-sizing: content-box;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 15% 1fr 50%;
+    grid-template-columns: 1fr 50%;
+    grid-gap: 15px 15px;
+    justify-content: stretch;
+    align-content: stretch;
+    justify-items: stretch;
+    align-items: stretch;
+    background-color: #004445;
+}
+.titulo{
+    grid-column: 1/span 2;
+    grid-row: 1/span 1;
+    padding: 10px;
+    text-align: center;
+    text-emphasis-style: open;
+    text-emphasis-color: black;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    text-shadow: 2px 2px 2px black;
+    font-size: 2.5em;
+    font-family: 'Calistoga', cursive;
+    color: #ffd800;
+}
+.obtener{
+    grid-column: 2/span 1;
+    grid-row: 2/span 1;
+    background-color: #6fb98f;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.agregar{
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
+    background-color: #6fb98f;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.button{
+    background-color: #2c7873;
+    border: solid 1px wheat;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffd800;
+    text-shadow: 1px 1px 0px black;
+    padding: 4px;
+    box-shadow: 3px 3px 2px black;
+}
+.button:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+.input{
+    border: solid 1px #ffd800;
+    border-radius: 5px;
+    padding: 4px;
+    width: 50%;
+}
+#contenedor{
+    grid-column: 1/span 2;
+    grid-row: 3/span 1;
+    background-color: #6fb98f;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* display: grid;
+    grid-template-columns: 1fr 10% 10%; */
+}
+.pregunta{
+    /* grid-column: 1 / span 1; */
+    align-self: flex-start;
+    background-color: #6fb98f;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.2em;
+}
+.eliminarPregunta{
+    /* grid-column: 3 / span 1; */
+    justify-self: flex-end;
+    background-color: rgb(187, 2, 2);
+    color: wheat;
+    padding: 3px;
+    width: 25px;
+    border: solid 1px wheat;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: 800;
+    text-shadow: 1px 1px 0px black;
+    box-shadow: 3px 3px 2px black;
+}
+.eliminarPregunta:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
