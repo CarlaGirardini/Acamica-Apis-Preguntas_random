@@ -77,6 +77,14 @@ body{
     padding: 4px;
     width: 50%;
 }
+
+.input::-webkit-input-placeholder,
+.input::-moz-placeholder,
+.input:-ms-input-placeholder,
+.input:-moz-placeholder {
+    text-align: center;
+}
+
 #contenedor{
     grid-column: 1/span 2;
     grid-row: 3/span 1;
@@ -98,6 +106,11 @@ body{
     border-radius: 5px;
     padding: 5px;
     font-size: 1.2em;
+}
+.resultados{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 .eliminarPregunta{
     /* grid-column: 3 / span 1; */
